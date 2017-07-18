@@ -19,8 +19,10 @@ module.exports = {
         chunkFilename: 'js/[name].chunk.js'   //chunk生成的配置
     },
     devtool:"source-map",
-    externals:{
-
+    resolve:{
+      alias:{
+          'CXGJ':path.resolve(__dirname, 'modules/CXGJ')
+      }
     },
     module: {
         rules: [

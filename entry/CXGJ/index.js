@@ -1,4 +1,4 @@
-require('../../modules/CXGJ/index/scss/index.scss');
+require('CXGJ/index/scss/index.scss');
 (function(){
 	var index = document.querySelector('.center').getAttribute('data-index');
 	console.log(index);
