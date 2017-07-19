@@ -1,8 +1,10 @@
+require('CXGJ/common/js/header-Template.js')
+require("CXGJ/common/scss/header-Template.scss")
 require('CXGJ/index/scss/index.scss');
 (function(){
-	var index = document.querySelector('.center').getAttribute('data-index');
+	/*var index = document.querySelector('.center').getAttribute('data-index');
 	console.log(index);
-	document.querySelectorAll('.nav')[index].className += ' active';
+	document.querySelectorAll('.nav')[index].className += ' active';*/
 
 	var i = 0, imgs = document.querySelectorAll('.img');
 	setTimeout(function(){

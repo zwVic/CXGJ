@@ -59,17 +59,17 @@ module.exports = {
             "window.jQuery":"jquery"
         }),
         new ExtractTextPlugin('css/[name].css'),
-        new webpack.optimize.CommonsChunkPlugin({
+        /*new webpack.optimize.CommonsChunkPlugin({
             name: 'vendors', // 将公共模块提取，生成名为`vendors`的chunk
-            chunks: ['index','understand','subordinateCompany'], //提取哪些模块共有的部分
+            chunks: ['index'], //提取哪些模块共有的部分
            // minChunks: 7 // 提取至少3个模块共有的部分
-        }),
+        }),*/
         new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
             //favicon: './src/img/favicon.ico', //favicon路径，通过webpack引入同时可以生成hash值
             filename: './index.html', //生成的html存放路径，相对于path
             template: path.resolve(__dirname, 'modules/CXGJ/index/index.html'), //html模板路径
             inject: 'body', //js插入的位置，true/'head'/'body'/false
-            chunks: ['vendors', 'index'],//需要引入的chunk，不配置就会引入所有页面的资源
+           // chunks: ['vendors', 'index'],//需要引入的chunk，不配置就会引入所有页面的资源
             minify: { //压缩HTML文件
                 removeComments: false, //移除HTML中的注释
                 collapseWhitespace: false //删除空白符与换行符
@@ -79,7 +79,7 @@ module.exports = {
             filename: './understand.html', 
             template: path.resolve(__dirname, 'modules/CXGJ/understand/understand.html'), 
             inject: 'body', 
-            chunks: ['vendors', 'understand'],//需要引入的chunk，不配置就会引入所有页面的资源
+           // chunks: ['vendors', 'index'],//需要引入的chunk，不配置就会引入所有页面的资源
             minify: { 
                 removeComments: false, 
                 collapseWhitespace: false 
@@ -89,7 +89,7 @@ module.exports = {
             filename: './subordinateCompany.html', 
             template: path.resolve(__dirname, 'modules/CXGJ/subordinateCompany/subordinateCompany.html'), 
             inject: 'body', 
-            chunks: ['vendors', 'subordinateCompany'],//需要引入的chunk，不配置就会引入所有页面的资源
+           // chunks: ['vendors', 'index'],//需要引入的chunk，不配置就会引入所有页面的资源
             minify: { 
                 removeComments: false, 
                 collapseWhitespace: false 
