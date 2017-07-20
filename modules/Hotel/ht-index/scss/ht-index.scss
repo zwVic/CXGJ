@@ -1,0 +1,89 @@
+html,body{
+  width: 100%;
+  height: 100%;
+  padding:0;
+  margin:0;
+  font-family: "微软雅黑";
+}
+//清除浮动
+@mixin clearfix{
+  &:after{
+    content:"";
+    display:table;
+    clear:both;
+  }
+}
+//顶部轮播
+.swiper-container {
+  width: 100%;
+  height: 100%;
+  .banner-one,.banner-two,.banner-three{
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .banner-one{
+    background-image: url("../../common/img/banner-img1.jpg");
+  }
+  .banner-two{
+    background-image: url("../../common/img/banner-img2.jpg");
+  }
+  .banner-three{
+    background-image: url("../../common/img/banner-img3.jpg");
+  }
+}
+//轮播下面展示部分
+section.show{
+  width: 1200px;
+  margin:0 auto;
+  background: #f4f4f4;
+  margin-top:80px;
+  @include clearfix;
+  .show-part{
+    width: 340px;
+    float:left;
+    margin:0 30px;
+    padding:60px 0px;
+
+    .show-pic{
+      height:200px;
+      border-radius: 5px;
+      cursor: pointer;
+      overflow: hidden;
+
+      img{
+        width: 100%;
+        height: 100%;
+        &:hover{
+          transition: all 1s ease-in-out;
+          transform: scale(1.2);
+        }
+      }
+    }
+    .show-intro{
+      p{
+        text-align:center;
+      }
+    }
+  }
+}
+//文字轮播部分
+section.text-banner{
+  width: 1200px;
+  margin: 80px auto 80px auto;
+  border-top:1px dashed #000;
+  .swiper-slide{
+    h1{
+      text-align: center;
+    }
+    p{
+      font-size:18px;
+      text-indent: 36px;
+    }
+  }
+}
+
+//info信息部分
+section.info{
+  width: 1200px;
+  margin:0 auto;
+}
