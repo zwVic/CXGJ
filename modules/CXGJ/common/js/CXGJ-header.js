@@ -30,8 +30,5 @@
             break;
 
     }
-/*
-    var index = document.querySelector('.center').getAttribute('data-index');
-    document.querySelectorAll('.nav')[index].className += ' active';*/
 
 })(window.jQuery)

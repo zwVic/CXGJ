@@ -1,5 +1,5 @@
-require('CXGJ/common/js/header-Template.js')
-require("CXGJ/common/scss/header-Template.scss")
+require('CXGJ/common/js/CXGJ-header.js')
+require("CXGJ/common/scss/CXGJ-header.js.scss")
 require('CXGJ/index/scss/index.scss');
 (function(){
 	/*var index = document.querySelector('.center').getAttribute('data-index');
