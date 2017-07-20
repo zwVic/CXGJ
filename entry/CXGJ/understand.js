@@ -1,5 +1,5 @@
-require('CXGJ/common/js/header-Template.js')
-require("CXGJ/common/scss/header-Template.scss")
+require('CXGJ/common/js/CXGJ-header.js')
+require("CXGJ/common/scss/CXGJ-header.scss")
 
 require("CXGJ/understand/scss/understand.scss")
 require("CXGJ/understand/js/understand.js")
