@@ -21,6 +21,9 @@ html,body{
   font-family: '微软雅黑';
 }
 
+a{
+  text-decoration: none;
+}
 //清除浮动
 @mixin clearfix{
   &:after{
