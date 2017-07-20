@@ -48,10 +48,18 @@ header{
         transform: translate(-50%,-50%);
       }
       .active{
-        animation: borderanimation .5s linear;
+        animation: borderanimation-show .5s linear;
         animation-fill-mode: forwards;
       }
-      @keyframes borderanimation{
+      @keyframes borderanimation-hide {
+        from{
+          width: 100%;
+        }
+        to{
+          width: 0%;
+        }
+      }
+      @keyframes borderanimation-show{
         from{
           width: 0%;
         }

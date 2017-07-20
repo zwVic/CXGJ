@@ -28,6 +28,13 @@
     var index = href.lastIndexOf("/");
     var currentPage = href.slice(index);
     var borderStyle = $("nav li .borderStyle");
+    var style = {
+        animation: "hideBorder .3s linear",
+        animationFillMode: "forwards"
+    };
+    borderStyle.onmouseout(function(){
+        $(this).css(style);
+    });
     switch (currentPage){
         case "/":
         case "/ht-index.html":
