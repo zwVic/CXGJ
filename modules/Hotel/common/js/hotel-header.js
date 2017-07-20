@@ -3,7 +3,9 @@
  */
 (function($){
     var template = `<header>
-		<img src="./hotel.png" alt="" class="logo">
+        <div class="logo">
+            <span></span>
+        </div>
 		<nav>
 			<li class="active">首页
 				<div class="borderStyle"></div>
@@ -27,14 +29,19 @@
     var href = window.location.href;
     var index = href.lastIndexOf("/");
     var currentPage = href.slice(index);
+    var li = $("nav li");
     var borderStyle = $("nav li .borderStyle");
-    var style = {
-        animation: "hideBorder .3s linear",
-        animationFillMode: "forwards"
-    };
 
-    borderStyle.mouseout(function(){
-        $(this).css(style);
+    li.mouseout(function(){
+        var currentLi = $(this).find(".borderStyle");
+        if(!currentLi.hasClass('active')){
+            currentLi.attr({style:"animation:borderanimation-hide .3s linear;animation-fill-mode: forwards"});
+        }
+
+    });
+    li.mouseover(function(){
+        var currentLi = $(this).find(".borderStyle");
+            currentLi.removeAttr('style');
     });
 
     switch (currentPage){
