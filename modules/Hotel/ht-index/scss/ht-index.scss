@@ -2,6 +2,7 @@
 //顶部轮播
 .swiper-container {
   width: 100%;
+  overflow-x: hidden;
   height: 100%;
   .banner-one, .banner-two, .banner-three {
     background-repeat: no-repeat;

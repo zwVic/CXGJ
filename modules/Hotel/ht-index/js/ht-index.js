@@ -7,7 +7,7 @@ var picSwiper = new Swiper('.pic-banner', {
     paginationClickable: '.swiper-pagination',  //分页器是否可以点击
     nextButton: '.swiper-button-next',          //下一张按钮
     prevButton: '.swiper-button-prev',          //上一张按钮
-    effect: 'flip',         //切换效果
+    effect: 'cube',         //切换效果
     loop: true,             //自动循环
     autoplay : 5000,        //自动播放
 });
