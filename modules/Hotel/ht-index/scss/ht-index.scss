@@ -8,13 +8,43 @@
     background-size: cover;
   }
   .banner-one {
-    background-image: url("../../common/img/banner-img1.jpg");
+    background: url("../../common/img/banner-img1.jpg") 0 / cover fixed;
+    .banner:before{
+      background: url("../../common/img/banner-img1.jpg") 0 / cover fixed;
+    }
   }
   .banner-two {
-    background-image: url("../../common/img/banner-img2.jpg");
+    background: url("../../common/img/banner-img2.jpg") 0 / cover fixed;
+    .banner:before{
+      background: url("../../common/img/banner-img2.jpg") 0 / cover fixed;
+    }
   }
   .banner-three {
-    background-image: url("../../common/img/banner-img3.jpg");
+    background: url("../../common/img/banner-img3.jpg") 0 / cover fixed;
+    .banner:before{
+      background: url("../../common/img/banner-img3.jpg") 0 / cover fixed;
+    }
+  }
+
+  .banner-one,.banner-two,.banner-three{
+    .banner{
+      position: relative;
+      left: 7%;
+      top: 70%;
+      background: hsla(0,0%,100%,.3);
+      overflow: hidden;
+      padding: 20px;
+      border-radius: 8px;
+      line-height: 30px;
+    }
+    .banner::before{
+      content: '';
+      position: absolute;
+      z-index:-1;
+      top: 0;right:0;bottom:0;left:0;
+      filter:blur(20px);
+      margin: -30px;
+    }
   }
 }
 
