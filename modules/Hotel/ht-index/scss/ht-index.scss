@@ -30,13 +30,11 @@ section.show {
     float: left;
     margin: 0 30px;
     padding: 60px 0px;
-
     .show-pic {
       height: 200px;
       border-radius: 5px;
       cursor: pointer;
       overflow: hidden;
-
       img {
         width: 100%;
         height: 100%;
@@ -49,6 +47,7 @@ section.show {
     .show-intro {
       p {
         text-align: center;
+        margin: 15px 0;
       }
     }
   }
@@ -98,6 +97,125 @@ section.info {
       }
     }
   }
+
+}
+
+//介绍展示部分
+section.introduction-container {
+  width: 1200px;
+  margin: 30px auto;
+  .intro-top {
+    position: relative;
+    border: 1px solid #8d8d8d;
+    border-right: none;
+    margin: 50px 0;
+    @include clearfix;
+    .left {
+      width: 600px;
+      height: 370px;
+      float: left;
+      padding: 30px 85px 0px 65px;
+      box-sizing: border-box;
+      position: relative;
+      .left-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: url("../../common/img/banner-img1.jpg") no-repeat;
+        opacity: 0.1;
+        z-index: -1;
+        background-size: cover;
+      }
+      h3 {
+        color: #8e8685;
+        text-align: center;
+        margin: 30px 0;
+      }
+      p {
+        font-size: 16px;
+        text-indent: 32px;
+        margin: 5px;
+        line-height: 25px;
+        color: #8d8d8d;
+      }
+    }
+    .right {
+      width: 580px;
+      height: 370px;
+      float: left;
+      .intro-banner-one, .intro-banner-two, .intro-banner-three, .intro-banner-four, .intro-banner-five {
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .intro-banner-loading{
+        background-image: url("../../common/img/loading.gif");
+      }
+      .intro-banner-one {
+        background-image: url("../../common/img/intro-img1.jpg");
+      }
+      .intro-banner-two {
+        background-image: url("../../common/img/intro-img2.jpg");
+      }
+      .intro-banner-three {
+        background-image: url("../../common/img/intro-img3.jpg");
+      }
+      .intro-banner-four {
+        background-image: url("../../common/img/intro-img4.jpg");
+      }
+      .intro-banner-five {
+        background-image: url("../../common/img/intro-img5.jpg");
+      }
+    }
+    .icon {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      left: 0;
+      top: 60px;
+      background: #8e8685;
+      text-align: center;
+      line-height: 25px;
+      color: #fff;
+    }
+  }
+  .intro-bottom {
+    @include clearfix;
+    padding:40px 0;
+    border-top:1px solid #b1b2b4;
+    border-bottom:1px solid #b1b2b4;
+    div {
+      float:left;
+      @include clearfix;
+      .intro-sign {
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgb(248,246,247);
+        text-align: center;
+        float:left;
+        .iconfont {
+          font-size: 30px;
+          line-height:70px;
+        }
+      }
+      .intro-text{
+        width: 200px;
+        float:left;
+        margin:10px 0 0 30px;
+        h4{
+          margin-bottom:6px;
+          padding-left: 20px;
+        }
+        span{
+          color:#b1b2b4;
+        }
+      }
+    }
+  }
 }
 
 //尾部部分
@@ -108,28 +226,28 @@ footer {
     width: 1200px;
     margin: 0 auto;
     ul {
-      padding-top:20px;
+      padding-top: 20px;
       text-align: center;
       li {
         display: inline-block;
-        margin:0 30px;
-        padding-left:60px;
+        margin: 0 30px;
+        padding-left: 60px;
         a {
           color: #fff;
           border-bottom: 1px solid #fff;
         }
       }
-      li + li{
-        border-left:1px solid #fff;
+      li + li {
+        border-left: 1px solid #fff;
       }
     }
-    .copyright{
-      color:#fff;
+    .copyright {
+      color: #fff;
       text-align: center;
-      margin-top:30px;
-      padding-bottom:30px;
-      span{
-       margin-left:30px;
+      margin-top: 30px;
+      padding-bottom: 30px;
+      span {
+        margin-left: 30px;
       }
     }
   }
