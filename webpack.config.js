@@ -11,7 +11,9 @@ module.exports = {
         index: './entry/CXGJ/index.js', 
         understand: './entry/CXGJ/understand.js', 
         subordinateCompany:"./entry/CXGJ/subordinateCompany.js" ,     //入口文件
-        'ht-index': './entry/Hotel/ht-index.js'
+        'ht-index': './entry/Hotel/ht-index.js',
+        'ht-contactUs':'./entry/Hotel/ht-contactUs.js',
+        'ht-managementKnowledge':'./entry/Hotel/ht-managementKnowledge.js'
     },
     output:{
         path: path.resolve("./build"), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
@@ -69,7 +71,7 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'ht-vendors', // 将公共模块提取，生成名为`vendors`的chunk
-            chunks: ['ht-index'], //提取哪些模块共有的部分
+            chunks: ['ht-index','ht-contactUs','ht-managementKnowledge'], //提取哪些模块共有的部分
             // minChunks: 7 // 提取至少3个模块共有的部分
         }),
         new HtmlWebpackPlugin({ //根据模板插入css/js等生成最终HTML
@@ -108,6 +110,26 @@ module.exports = {
             template: path.resolve(__dirname, 'modules/Hotel/ht-index/ht-index.html'),
             inject: 'body',
             chunks: ['ht-vendors', 'ht-index'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './ht-contactUs.html',
+            template: path.resolve(__dirname, 'modules/Hotel/ht-contactUs/ht-contactUs.html'),
+            inject: 'body',
+            chunks: ['ht-vendors', 'ht-contactUs'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './ht-managementKnowledge.html',
+            template: path.resolve(__dirname, 'modules/Hotel/ht-managementKnowledge/ht-managementKnowledge.html'),
+            inject: 'body',
+            chunks: ['ht-vendors', 'ht-managementKnowledge'],//需要引入的chunk，不配置就会引入所有页面的资源
             minify: {
                 removeComments: false,
                 collapseWhitespace: false

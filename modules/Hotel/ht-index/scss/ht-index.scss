@@ -9,43 +9,25 @@
     background-size: cover;
   }
   .banner-one {
-    background: url("../../common/img/banner-img1.jpg") 0 / cover fixed;
-    .banner:before{
-      background: url("../../common/img/banner-img1.jpg") 0 / cover fixed;
-    }
+    background-image: url("../../common/img/banner-img1.jpg");
+    //.banner:before{
+    //  background: url("../../common/img/banner-img1.jpg") 0 / cover fixed;
+    //}
   }
   .banner-two {
-    background: url("../../common/img/banner-img2.jpg") 0 / cover fixed;
-    .banner:before{
-      background: url("../../common/img/banner-img2.jpg") 0 / cover fixed;
-    }
+    background-image: url("../../common/img/banner-img2.jpg");
+    //.banner:before{
+    //  background: url("../../common/img/banner-img2.jpg") 0 / cover fixed;
+    //}
   }
   .banner-three {
-    background: url("../../common/img/banner-img3.jpg") 0 / cover fixed;
-    .banner:before{
-      background: url("../../common/img/banner-img3.jpg") 0 / cover fixed;
-    }
+    background-image: url("../../common/img/banner-img3.jpg");
+    //.banner:before{
+    //  background: url("../../common/img/banner-img3.jpg") 0 / cover fixed;
+    //}
   }
 
   .banner-one,.banner-two,.banner-three{
-    .banner{
-      position: relative;
-      left: 7%;
-      top: 70%;
-      background: hsla(0,0%,100%,.3);
-      overflow: hidden;
-      padding: 20px;
-      border-radius: 8px;
-      line-height: 30px;
-    }
-    .banner::before{
-      content: '';
-      position: absolute;
-      z-index:-1;
-      top: 0;right:0;bottom:0;left:0;
-      filter:blur(20px);
-      margin: -30px;
-    }
   }
 }
 
@@ -56,6 +38,11 @@ section.show {
   background: #f4f4f4;
   margin-top: 80px;
   @include clearfix;
+  .title{
+    font-size:35px;
+    text-align: center;
+    padding-top:30px;
+  }
   .show-part {
     width: 340px;
     float: left;
@@ -97,6 +84,7 @@ section.text-banner {
     p {
       font-size: 18px;
       text-indent: 36px;
+      line-height:36px;
     }
   }
 }

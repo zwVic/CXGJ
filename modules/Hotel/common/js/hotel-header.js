@@ -2,28 +2,28 @@
  * Created by Administrator on 2017/7/20.
  */
 (function($){
-    var template = `<header>
-        <div class="logo">
-            <span></span>
-        </div>
-		<nav>
-			<li class="active">首页
-				<div class="borderStyle"></div>
-			</li>
-			<li>感受酒店
-				<div class="borderStyle"></div>
-			</li>
-			<li>酒店管理知识
-				<div class="borderStyle"></div>
-			</li>
-			<li>关于我们
-				<div class="borderStyle"></div>
-			</li>
-			<li>联系我们
-				<div class="borderStyle"></div>
-			</li>
-		</nav>
-	</header>`;
+    var template = ['<header>',
+        '        <div class="logo">',
+        '            <span></span>',
+        '        </div>',
+        '		<nav>',
+        '			<li class="./ht-index.html"><a href="#">首页</a>',
+        '				<div class="borderStyle"></div>',
+        '			</li>',
+        '			<li><a href="./ht-hotelFell.html">感受酒店</a>',
+        '				<div class="borderStyle"></div>',
+        '			</li>',
+        '			<li><a href="./ht-managementKnowledge.html">酒店管理知识</a>',
+        '				<div class="borderStyle"></div>',
+        '			</li>',
+        '			<li><a href="./ht-aboutUs.html">关于我们</a>',
+        '				<div class="borderStyle"></div>',
+        '			</li>',
+        '			<li><a href="./ht-contactUs.html">联系我们</a>',
+        '				<div class="borderStyle"></div>',
+        '			</li>',
+        '		</nav>',
+        '	</header>'].join("");;
 
     $("body").prepend(template);
     var href = window.location.href;
@@ -58,7 +58,7 @@
         case "/ht-aboutUs.html":
             $(borderStyle[3]).addClass("active").siblings().removeClass('active');
             break;
-        case "/contactUs.html":
+        case "/ht-contactUs.html":
             $(borderStyle[4]).addClass("active").siblings().removeClass('active');
             break;
     }
