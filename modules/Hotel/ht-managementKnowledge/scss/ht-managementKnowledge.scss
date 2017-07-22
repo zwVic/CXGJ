@@ -1,3 +1,158 @@
+@import "../../common/scss/hotel-header.scss";
 header{
   position:relative;
+}
+.article-guide{
+  width:1200px;
+  margin:30px auto 0;
+  span{
+    display: inline-block;
+    margin-right:15px;
+    i{
+      font-size:30px;
+    }
+  }
+}
+.article_container{
+  width:1200px;
+  margin:40px auto 80px;
+  padding-top:20px;
+  border-top:1px solid  #ddd;
+  @include clearfix;
+
+  .main{
+    width: 80%;
+    float: left;
+    .artical{
+      margin-top:20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      @include clearfix;
+      h2{
+        text-align: center;
+        margin:10px 0px;
+      }
+      p{
+        padding:10px 10px;
+        line-height:30px;
+      }
+      .pic{
+        width: 480px;
+        height:auto;
+        margin:15px auto;
+        img{
+          width:100%;
+          height:100%;
+        }
+      }
+      h2{
+        text-align: center;
+        margin:15px 0px;
+      }
+      h4{
+        text-align: center;
+        margin:15px 0px;
+      }
+      //左边日期样式
+      .left{
+        float: left;
+        border-radius: 50px;
+        width: 100px;
+        height: 100px;
+        background: #EDEDED;
+        margin-right:40px;
+        .date{
+          font-size: 40px;
+          color: #E67219;
+          padding-left: 25%;
+          border-bottom: 1px #ccc solid;
+        }
+        .month,.year{
+          padding-left: 30%;
+        }
+      }
+      //中间内容区块
+      .middle{
+        margin:0 auto;
+        width: 800px;
+        .title{
+          text-align: center;
+          font-size: 18px;
+          font-weight: bold;
+          a{
+            color: #373737;
+          }
+        }
+        .detail{
+          text-align: center;
+          color: #4C4C4C;
+          font-size: 12px;
+          margin-top: 3px;
+        }
+        .content{
+          margin-top: 10px;
+          p{
+            line-height: 25px;
+            text-indent: 2em;
+            font-size: 14px;
+            margin: 30px 50px;
+          }
+        }
+      }
+    }
+    .load-more{
+      width: 600px;
+      margin:30px auto;
+      text-align: center;
+      height:50px;
+      line-height: 50px;
+      color:#fff;
+      background: #E67219;
+      border-radius: 10px;
+      cursor: pointer;
+      .loadingGif{
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        background-image: url("../../common/img/loadding.gif");
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin:15px 0 0 10px;
+        vertical-align: top;
+      }
+    }
+    .near-article{
+      display: inline-block;
+      padding-left: 180px;
+      margin-bottom: 30px;
+      span{
+        color: white;
+        border-radius: 5px;
+        width: 60px;
+        height: 25px;
+        padding-left: 1px;
+        padding-right: 3px;
+        line-height: 25px;
+        background: #E67219;
+        font-size: 15px;
+      }
+      a{
+        color: black;
+        padding-left: 10px;
+        &:hover{
+          color: #6262F6;
+        }
+      }
+    }
+  }
+  .right{
+    float: right;
+    width: 200px;
+    img{
+      width: 200px;
+      height: 250px;
+      border-radius: 5%;
+      margin-bottom:20px;
+    }
+  }
 }

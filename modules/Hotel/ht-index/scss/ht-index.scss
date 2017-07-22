@@ -17,7 +17,6 @@
   .banner-three {
     background-image: url("../../common/img/banner-img3.jpg");
   }
-
 }
 
 //轮播下面展示部分
@@ -157,8 +156,8 @@ section.introduction-container {
         background-repeat: no-repeat;
         background-size: cover;
       }
-      .intro-banner-loading{
-        background-image: url("../../common/img/loading.gif");
+      .intro-banner-loading{      //懒加载
+        background-image: url("../../common/img/intro-img1.jpg");
       }
       .intro-banner-one {
         background-image: url("../../common/img/intro-img1.jpg");

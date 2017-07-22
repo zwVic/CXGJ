@@ -7,6 +7,7 @@
         '            <span></span>',
         '        </div>',
         '		<nav>',
+
         '			<li><div class="borderStyle"></div>',
         '				<a href="./ht-index.html">首页</a>',
         '			</li>|',
@@ -80,6 +81,8 @@
         '            <p class="copyright">Copyright 2017 东莞理工酒店管理 版权所有</p>',
         '        </div>',
         '    </footer>'].join("");
-    $('body').append(footer);
+    //判断是否存在script标签 如果存在 footer插在script前面 否则插入在body最后面
+    $("body>script").length>0 ? $('body>script').eq(0).before(footer):$('body').append(footer);
+
 
 })(window.jQuery)
