@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/7/20.
  */
 (function($){
-    var template = `<header>
+    var header = `<header>
         <div class="logo">
             <span></span>
         </div>
@@ -25,7 +25,7 @@
 		</nav>
 	</header>`;
 
-    $("body").prepend(template);
+    $("body").prepend(header);
     var href = window.location.href;
     var index = href.lastIndexOf("/");
     var currentPage = href.slice(index);
@@ -62,4 +62,18 @@
             $(borderStyle[4]).addClass("active").siblings().removeClass('active');
             break;
     }
+
+    var footer = `
+    <footer>
+        <div class="footer-container">
+            <ul>
+                <li>友情链接</li>
+                <li><a href="http://www.hocoohotel.cn">后客智慧酒店</a></li>
+                <li><a href="http://www.szpattayahotel.com">深圳芭堤雅酒店</a></li>
+            </ul>
+            <p class="copyright">Copyright 2017 东莞理工酒店管理 版权所有</p>
+        </div>
+    </footer>`;
+    $('body').append(footer);
+
 })(window.jQuery)
