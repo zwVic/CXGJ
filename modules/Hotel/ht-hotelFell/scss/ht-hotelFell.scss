@@ -1,7 +1,7 @@
 $photoWraoHeight:300%; //$photoNumber * 100
 $photoNumber:3;//该值改变时ht-hotelFell.js中photoNumber也需要改变
-body{
-  .main{
+
+#ht-hotelFell{
     position:relative;
     width: 100%;
     height:100%;
@@ -41,4 +41,4 @@ body{
       }
     }
   }
-}
+

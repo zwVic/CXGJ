@@ -14,7 +14,8 @@ module.exports = {
         'ht-index': './entry/Hotel/ht-index.js',
         'ht-contactUs':'./entry/Hotel/ht-contactUs.js',
         'ht-managementKnowledge':'./entry/Hotel/ht-managementKnowledge.js',
-        'ht-hotelFell':'./entry/Hotel/ht-hotelFell.js'
+        'ht-hotelFell':'./entry/Hotel/ht-hotelFell.js',
+        'ht-aboutUs':'./entry/Hotel/ht-aboutUs.js'
     },
     output:{
         path: path.resolve("./build"), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
@@ -73,10 +74,10 @@ module.exports = {
            // minChunks: 7 // 提取至少3个模块共有的部分
         }),
 
-        /*********创新工匠公有模块************/
+        /*********酒店管理公有模块************/
         new webpack.optimize.CommonsChunkPlugin({
             name: 'ht-vendors', // 将公共模块提取，生成名为`vendors`的chunk
-            chunks: ['ht-index','ht-contactUs','ht-managementKnowledge','ht-hotelFell'], //提取哪些模块共有的部分
+            chunks: ['ht-index','ht-contactUs','ht-managementKnowledge','ht-hotelFell','ht-aboutUs'], //提取哪些模块共有的部分
             // minChunks: 7 // 提取至少3个模块共有的部分
         }),
 
@@ -149,6 +150,16 @@ module.exports = {
             template: path.resolve(__dirname, 'modules/Hotel/ht-managementKnowledge/ht-managementKnowledge.html'),
             inject: 'body',
             chunks: ['ht-vendors', 'ht-managementKnowledge'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './ht-aboutUs.html',
+            template: path.resolve(__dirname, 'modules/Hotel/ht-aboutUs/ht-aboutUs.html'),
+            inject: 'body',
+            chunks: ['ht-vendors', 'ht-aboutUs'],//需要引入的chunk，不配置就会引入所有页面的资源
             minify: {
                 removeComments: false,
                 collapseWhitespace: false
