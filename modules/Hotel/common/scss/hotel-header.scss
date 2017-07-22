@@ -43,12 +43,10 @@ header{
   position: absolute;
   z-index: 3;
   top: 0;
-  background: rgba(0,0,0,0.6);
-
   .logo{
     display: inline-block;
     height: auto;
-    margin-left: 20%;
+    margin-left: 14%;
     span{
       display: inline-block;
       background: url("../../../common/img/hotel.png") no-repeat;
@@ -60,14 +58,17 @@ header{
   }
   nav{
     display: inline-block;
-    margin-left: 5%;
+    margin-right: 7%;
+    float:right;
+    color: white;
     margin-top: 38px;
     vertical-align: top;
     li{
       position: relative;
       display: inline-block;
       box-sizing: border-box;
-      margin-right: 30px;
+      margin-right: 35px;
+      margin-left: 35px;
       padding-bottom: 5px;
       font-weight: lighter;
       font-size: 22px;
@@ -89,6 +90,10 @@ header{
       .active{
         animation: borderanimation-show .5s linear;
         animation-fill-mode: forwards;
+        border-color: #31c27c ;
+      }
+      .active + a {
+        color: #31c27c;
       }
       @keyframes borderanimation-hide {
         from{

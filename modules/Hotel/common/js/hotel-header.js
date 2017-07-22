@@ -2,29 +2,30 @@
  * Created by Administrator on 2017/7/20.
  */
 (function($){
-    var template = ['<header>',
+    var header = ['<header>',
         '        <div class="logo">',
         '            <span></span>',
         '        </div>',
         '		<nav>',
-        '			<li class="./ht-index.html"><a href="#">首页</a>',
-        '				<div class="borderStyle"></div>',
-        '			</li>',
-        '			<li><a href="./ht-hotelFell.html">感受酒店</a>',
-        '				<div class="borderStyle"></div>',
-        '			</li>',
-        '			<li><a href="./ht-managementKnowledge.html">酒店管理知识</a>',
-        '				<div class="borderStyle"></div>',
-        '			</li>',
-        '			<li><a href="./ht-aboutUs.html">关于我们</a>',
-        '				<div class="borderStyle"></div>',
-        '			</li>',
-        '			<li><a href="./ht-contactUs.html">联系我们</a>',
-        '				<div class="borderStyle"></div>',
+        '			<li><div class="borderStyle"></div>',
+        '				<a href="./ht-index.html">首页</a>',
+        '			</li>|',
+        '			<li><div class="borderStyle"></div>',
+        '				<a href="./ht-hotelFell.html">感受酒店</a>',
+        '			</li>|',
+        '			<li><div class="borderStyle"></div>',
+        '				<a href="./ht-managementKnowledge.html">酒店管理知识</a>',
+        '			</li>|',
+        '			<li><div class="borderStyle"></div>',
+        '				<a href="./ht-aboutUs.html">关于我们</a>',
+        '			</li>|',
+        '			<li><div class="borderStyle"></div>',
+        '				<a href="./ht-contactUs.html">联系我们</a>',
         '			</li>',
         '		</nav>',
         '	</header>'].join("");
 
+    //添加头部
     $("body").prepend(header);
     var href = window.location.href;
     var index = href.lastIndexOf("/");
@@ -32,6 +33,7 @@
     var li = $("nav li");
     var borderStyle = $("nav li .borderStyle");
 
+    //下划线动画相关
     li.mouseout(function(){
         var currentLi = $(this).find(".borderStyle");
         if(!currentLi.hasClass('active')){
@@ -47,18 +49,23 @@
     switch (currentPage){
         case "/":
         case "/ht-index.html":
+            $("header").removeAttr('style');
             $(borderStyle[0]).addClass("active").siblings().removeClass('active');
             break;
         case "/ht-hotelFell.html":
+            $("header").removeAttr('style');
             $(borderStyle[1]).addClass("active").siblings().removeClass('active');
             break;
         case "/ht-managementKnowledge.html":
+            $("header").attr({style:"background:rgba(0,0,0,0.6)"});
             $(borderStyle[2]).addClass("active").siblings().removeClass('active');
             break;
         case "/ht-aboutUs.html":
+            $("header").attr({style:"background:rgba(0,0,0,0.6)"});
             $(borderStyle[3]).addClass("active").siblings().removeClass('active');
             break;
         case "/ht-contactUs.html":
+            $("header").attr({style:"background:rgba(0,0,0,0.6)"});
             $(borderStyle[4]).addClass("active").siblings().removeClass('active');
             break;
     }
