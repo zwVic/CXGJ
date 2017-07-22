@@ -238,36 +238,3 @@ section.introduction-container {
 }
 
 //尾部部分
-footer {
-  width: 100%;
-  background-color: #494949;
-  .footer-container {
-    width: 1200px;
-    margin: 0 auto;
-    ul {
-      padding-top: 20px;
-      text-align: center;
-      li {
-        display: inline-block;
-        margin: 0 30px;
-        padding-left: 60px;
-        a {
-          color: #fff;
-          border-bottom: 1px solid #fff;
-        }
-      }
-      li + li {
-        border-left: 1px solid #fff;
-      }
-    }
-    .copyright {
-      color: #fff;
-      text-align: center;
-      margin-top: 30px;
-      padding-bottom: 30px;
-      span {
-        margin-left: 30px;
-      }
-    }
-  }
-}
