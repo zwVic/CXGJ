@@ -10,24 +10,12 @@
   }
   .banner-one {
     background-image: url("../../common/img/banner-img1.jpg");
-    //.banner:before{
-    //  background: url("../../common/img/banner-img1.jpg") 0 / cover fixed;
-    //}
   }
   .banner-two {
     background-image: url("../../common/img/banner-img2.jpg");
-    //.banner:before{
-    //  background: url("../../common/img/banner-img2.jpg") 0 / cover fixed;
-    //}
   }
   .banner-three {
     background-image: url("../../common/img/banner-img3.jpg");
-    //.banner:before{
-    //  background: url("../../common/img/banner-img3.jpg") 0 / cover fixed;
-    //}
-  }
-
-  .banner-one,.banner-two,.banner-three{
   }
 }
 
@@ -168,8 +156,8 @@ section.introduction-container {
         background-repeat: no-repeat;
         background-size: cover;
       }
-      .intro-banner-loading{
-        background-image: url("../../common/img/loading.gif");
+      .intro-banner-loading{      //懒加载
+        background-image: url("../../common/img/intro-img1.jpg");
       }
       .intro-banner-one {
         background-image: url("../../common/img/intro-img1.jpg");

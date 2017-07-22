@@ -2,12 +2,12 @@
  * Created by Administrator on 2017/7/20.
  */
 (function($){
-    var template = ['<header>',
+    var header = ['<header>',
         '        <div class="logo">',
         '            <span></span>',
         '        </div>',
         '		<nav>',
-        '			<li class="./ht-index.html"><a href="#">首页</a>',
+        '			<li ><a href="./ht-index.html"">首页</a>',
         '				<div class="borderStyle"></div>',
         '			</li>',
         '			<li><a href="./ht-hotelFell.html">感受酒店</a>',
@@ -73,6 +73,8 @@
         '            <p class="copyright">Copyright 2017 东莞理工酒店管理 版权所有</p>',
         '        </div>',
         '    </footer>'].join("");
-    $('body').append(footer);
+    //判断是否存在script标签 如果存在 footer插在script前面 否则插入在body最后面
+    $("script").length>0 ? $('script').eq(0).before(footer):$('body').append(footer);
+
 
 })(window.jQuery)
