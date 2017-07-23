@@ -11,10 +11,15 @@
     box-sizing: border-box;
     padding-top: 30px;
     padding-bottom: 30px;
-    top: 50%;
-    transform: translate(0,50%);
-    text-align: center;
-    background: rgba(0,0,0,0.6);
+    top: 63%;
+    background: rgba(255,255,255,0.8);
     color: white;
+    p{
+      font-size: 20px;
+      width: 80%;
+      margin-left:10%;
+      color: black;
+      line-height: 37px;
+    }
   }
 }

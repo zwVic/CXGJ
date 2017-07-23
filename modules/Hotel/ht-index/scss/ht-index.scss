@@ -17,6 +17,44 @@
   .banner-three {
     background-image: url("../../common/img/banner-img3.jpg");
   }
+  div[class^="swiper-button"]{
+    background: none;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-out;
+    animation-duration: 1.8s;
+    span{
+      color: rgba(255,255,255,0.8);
+      font-size: 35px;
+    }
+  }
+  .swiper-button-prev{
+    animation-name: left;
+  }
+  .swiper-button-next{
+    animation-name:right;
+  }
+  @keyframes left {
+    0%{
+      left: 20px;
+    }
+    50%{
+      left: 0;
+    }
+    100%{
+      left: 20px;
+    }
+  }
+  @keyframes right {
+    0%{
+      right: 20px;
+    }
+    50%{
+      right: 0;
+    }
+    100%{
+      right: 20px;
+    }
+  }
 }
 
 //轮播下面展示部分
