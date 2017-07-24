@@ -57,6 +57,7 @@
             $("header").removeAttr('style');
             $(borderStyle[1]).addClass("active").siblings().removeClass('active');
             break;
+        case "/ht-article.html":
         case "/ht-managementKnowledge.html":
             $("header").attr({style:"background:rgba(0,0,0,0.6)"});
             $(borderStyle[2]).addClass("active").siblings().removeClass('active');

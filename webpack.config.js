@@ -11,11 +11,19 @@ module.exports = {
         index: './entry/CXGJ/index.js', 
         understand: './entry/CXGJ/understand.js', 
         subordinateCompany:"./entry/CXGJ/subordinateCompany.js" ,     //入口文件
+        //酒店管理
         'ht-index': './entry/Hotel/ht-index.js',
         'ht-contactUs':'./entry/Hotel/ht-contactUs.js',
         'ht-managementKnowledge':'./entry/Hotel/ht-managementKnowledge.js',
         'ht-hotelFell':'./entry/Hotel/ht-hotelFell.js',
-        'ht-aboutUs':'./entry/Hotel/ht-aboutUs.js'
+        'ht-aboutUs':'./entry/Hotel/ht-aboutUs.js',
+        'ht-article':"./entry/Hotel/ht-article.js",
+        //环宇培训
+        'hy-index':'./entry/Huanyu/hy-index.js',
+        'hy-form':'./entry/Huanyu/hy-form.js',
+        'hy-about':'./entry/Huanyu/hy-about.js',
+        'hy-article':'./entry/Huanyu/hy-article.js',
+        'hy-picture':'./entry/Huanyu/hy-picture.js'
     },
     output:{
         path: path.resolve("./build"), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
@@ -28,7 +36,9 @@ module.exports = {
       alias:{
           'CXGJ':path.resolve(__dirname, 'modules/CXGJ'),
           'Hotel':path.resolve(__dirname,'modules/Hotel'),
+          'Huanyu':path.resolve(__dirname,'modules/Huanyu'),
           "modules":path.resolve(__dirname,'modules'),
+
       }
     },
     module: {
@@ -77,7 +87,13 @@ module.exports = {
         /*********酒店管理公有模块************/
         new webpack.optimize.CommonsChunkPlugin({
             name: 'ht-vendors', // 将公共模块提取，生成名为`vendors`的chunk
-            chunks: ['ht-index','ht-contactUs','ht-managementKnowledge','ht-hotelFell','ht-aboutUs'], //提取哪些模块共有的部分
+            chunks: ['ht-index','ht-contactUs','ht-managementKnowledge','ht-hotelFell','ht-aboutUs','ht-article'], //提取哪些模块共有的部分
+            // minChunks: 7 // 提取至少3个模块共有的部分
+        }),
+        /********环宇培训共有模块***************/
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'hy-vendors', // 将公共模块提取，生成名为`vendors`的chunk
+            chunks: ['hy-index','hy-form','hy-about','hy-article','hy-picture'], //提取哪些模块共有的部分
             // minChunks: 7 // 提取至少3个模块共有的部分
         }),
 
@@ -164,6 +180,67 @@ module.exports = {
                 removeComments: false,
                 collapseWhitespace: false
             }
-        })
+        }),
+        new HtmlWebpackPlugin({
+            filename: './ht-article.html',
+            template: path.resolve(__dirname, 'modules/Hotel/ht-article/ht-article.html'),
+            inject: 'body',
+            chunks: ['ht-vendors', 'ht-article'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        /***************环宇培训*****************/
+        new HtmlWebpackPlugin({
+            filename: './hy-index.html',
+            template: path.resolve(__dirname, 'modules/Huanyu/hy-index/hy-index.html'),
+            inject: 'body',
+            chunks: ['hy-vendors', 'hy-index'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './hy-form.html',
+            template: path.resolve(__dirname, 'modules/Huanyu/hy-form/hy-form.html'),
+            inject: 'body',
+            chunks: ['hy-vendors', 'hy-form'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './hy-about.html',
+            template: path.resolve(__dirname, 'modules/Huanyu/hy-about/hy-about.html'),
+            inject: 'body',
+            chunks: ['hy-vendors', 'hy-about'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './hy-article.html',
+            template: path.resolve(__dirname, 'modules/Huanyu/hy-article/hy-article.html'),
+            inject: 'body',
+            chunks: ['hy-vendors', 'hy-article'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './hy-picture.html',
+            template: path.resolve(__dirname, 'modules/Huanyu/hy-picture/hy-picture.html'),
+            inject: 'body',
+            chunks: ['hy-vendors', 'hy-picture'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
     ]
 }

@@ -113,7 +113,8 @@ header{
       .loadingGif{
         width: 22px;
         height: 22px;
-        display: inline-block;
+        //display: inline-block;
+        display:none;
         background-image: url("../../common/img/loadding.gif");
         background-repeat: no-repeat;
         background-size: cover;
