@@ -24,6 +24,7 @@
 
     //文字轮播
     var textSwiper = new Swiper('.text-banner', {
+        direction: 'horizontal',
         spaceBetween: 30,
         effect: 'fade',
         loop: true,
