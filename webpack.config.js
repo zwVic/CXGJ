@@ -22,8 +22,9 @@ module.exports = {
         'hy-index':'./entry/Huanyu/hy-index.js',
         'hy-form':'./entry/Huanyu/hy-form.js',
         'hy-about':'./entry/Huanyu/hy-about.js',
+        'hy-articles':'./entry/Huanyu/hy-articles.js',
+        'hy-picture':'./entry/Huanyu/hy-picture.js',
         'hy-article':'./entry/Huanyu/hy-article.js',
-        'hy-picture':'./entry/Huanyu/hy-picture.js'
     },
     output:{
         path: path.resolve("./build"), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
@@ -93,7 +94,7 @@ module.exports = {
         /********环宇培训共有模块***************/
         new webpack.optimize.CommonsChunkPlugin({
             name: 'hy-vendors', // 将公共模块提取，生成名为`vendors`的chunk
-            chunks: ['hy-index','hy-form','hy-about','hy-article','hy-picture'], //提取哪些模块共有的部分
+            chunks: ['hy-index','hy-form','hy-about','hy-articles','hy-picture','hy-article'], //提取哪些模块共有的部分
             // minChunks: 7 // 提取至少3个模块共有的部分
         }),
 
@@ -223,10 +224,10 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
-            filename: './hy-article.html',
-            template: path.resolve(__dirname, 'modules/Huanyu/hy-article/hy-article.html'),
+            filename: './hy-articles.html',
+            template: path.resolve(__dirname, 'modules/Huanyu/hy-articles/hy-articles.html'),
             inject: 'body',
-            chunks: ['hy-vendors', 'hy-article'],//需要引入的chunk，不配置就会引入所有页面的资源
+            chunks: ['hy-vendors', 'hy-articles'],//需要引入的chunk，不配置就会引入所有页面的资源
             minify: {
                 removeComments: false,
                 collapseWhitespace: false
@@ -242,5 +243,15 @@ module.exports = {
                 collapseWhitespace: false
             }
         }),
+        new HtmlWebpackPlugin({
+            filename: './hy-article.html',
+            template: path.resolve(__dirname, 'modules/Huanyu/hy-article/hy-article.html'),
+            inject: 'body',
+            chunks: ['hy-vendors', 'hy-article'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        })
     ]
 }

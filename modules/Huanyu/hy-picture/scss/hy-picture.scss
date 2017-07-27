@@ -1,3 +1,5 @@
+@import "../../../common/scss/common.scss";
+
 .word {
   display: none;
   width: 300px;
@@ -18,30 +20,40 @@
 
 .container {
   width: 1200px;
+  min-width:1200px;
   text-align: center;
-  margin: 0 auto;
+  margin: 50px auto;
   overflow: hidden;
+    @include clearfix;
 }
 
-.container .picture {
+.container .picture-wrap {
   float: left;
-  width: 250px;
-  height: 250px;
-  margin: 20px 0;
-  margin-left: 66px;
-  border-radius: 15px;
+  width: 350px;
+  height: 260px;
+  margin-right:50px;
   cursor: pointer;
-  overflow: hidden;
+  .picture{
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  h3{
+    margin:10px 0;
+    font-size:15px;
+  }
+
 }
 
 .container .picture:first-child {
   margin-left: 0;
 }
 
-.container .picture img {
-  width: 100%;
-  height: 100%;
-}
+.container .picture{}
 
 .wrap {
   position: fixed;
@@ -61,8 +73,8 @@
   margin: 0 auto;
   margin-top: 50px;
   overflow: hidden;
-  display: none;
   z-index: 101;
+  display: none;
 }
 .showLists .picloadding{
   position:absolute;
@@ -79,12 +91,14 @@
   width:100%;
   height:600px;
   text-align: center;
+  display: none;
 }
 .loadding_wrap .loadding{
   position:absolute;
   top:40%;
   left:48%;
   width:150px;
+  display: none;
 }
 .loadding_wrap .loadding img{
   width:100%;
@@ -159,4 +173,37 @@
 
 #next {
   right: 20px;
+}
+
+.swiper-container{
+  .swiper-wrapper{
+    img{
+      width: 100%;
+      height:100%;
+    }
+  }
+}
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+.gallery-top {
+  height: 80%;
+  width: 100%;
+}
+.gallery-thumbs {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.gallery-thumbs .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+}
+.swiper-button-next, .swiper-button-prev{
+  top:40%;
 }

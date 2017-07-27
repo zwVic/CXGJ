@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深圳市环宇培训</title>
+</head>
+<body>
+<div id="container" class="main_wrap">
+    <div class="main">
+        <div class="content_wrap">
+            <div class="artical clearfix">
+                <div class="left">
+                    <span class="date">{{day}}</span><br>
+                    <span class="month">{{month}}</span><br>
+                    <span class="year">{{year}}</span>
+                </div>
+                <div class="middle">
+                    <div class="title">
+                        <a target="_blank" href="./view.html?id={{_id}}">{{title}}</a>
+                    </div>
+                    <div class="detail">
+                        <span>发布者:{{publisher}}</span>
+                        <span>发布时间：{{time}}</span>
+                    </div>
+                    <div class="content">
+                        <p> {{content}}
+                            <a target="_blank" href="./view.html?id={{_id}}">[显示详情]</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="more">
+            <span>加载更多</span>
+            <div class="loadding">
+                <img src="../common/img/loadding.gif">
+            </div>
+        </div>
+    </div>
+
+    <div class="right clearfix">
+        <img src="../common/img/about-img-one.jpg">
+        <img src="../common/img/about-img-two.jpg">
+    </div>
+</div>
+</body>
+</html>

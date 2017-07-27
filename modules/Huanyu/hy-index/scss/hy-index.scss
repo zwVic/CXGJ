@@ -179,10 +179,11 @@ h3 {
       overflow: hidden;
       border-bottom: 1px dashed #dfdfdf;
       a {
-        width: 100%;
         font-size: 15px;
         display: block;
         color: #646464;
+        overflow: hidden;
+        white-space: nowrap;
         text-overflow: ellipsis;
         .icon {
           font-size: 12px;
