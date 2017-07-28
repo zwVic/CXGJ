@@ -1,0 +1,98 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing:border-box;
+}
+
+ul,li{
+  list-style: none;
+}
+/*****导航栏更改时需要修改此处******/
+$pullDownListItem:41px;         /* 导航栏下拉列表每一项高度 */
+$liCount:(1:0,2:4,3:4,4:5,5:2); /* 键为导航的索引，值为该项的下拉列表有几项 */
+
+
+@mixin height($count){
+  height: $count*$pullDownListItem
+}
+
+header{
+  width: 100%;
+  min-width: 1200px;
+  position: relative;
+  nav{
+    float: right;
+    margin-top: 20px;
+    margin-right: 32px;
+    ul{
+      font-weight: lighter;
+      font-size: 16px;
+      color: white;
+      .item{
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        margin-right: 65px;
+        position: relative;
+        .pull-down-list{  /*导航的下拉列表*/
+          position: absolute;
+          background: rgba(0,0,0,0.60);
+          margin-top: 6px;
+          width: 100px;
+          height: 0;
+          opacity: 0;
+          transform: translateX(-17%);
+          transition: height 0.65s ease-out,opacity 1.25s ease-in;
+          border-radius: 2.8px;
+          li{
+            padding:10px  6px;
+            cursor: pointer;
+            position: relative;
+            a{
+              color: white;
+              text-decoration: none;
+              position: relative;
+              .border{ /*鼠标划过导航时底部变化的边框*/
+                position: absolute;
+                z-index: -1;
+                background: rgba(0,0,0,0);
+                border-bottom: 1px solid #31c27c;
+                width: 0%;
+                height: 100%;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%,-35%);
+                transition: width 0.8s ease-out;
+              }
+              &:hover{
+                color: #31c27c;
+                .border{
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+      .item:nth-child(4),.item:nth-child(5){		/*某两个导航的宽度*/
+        .pull-down-list{
+          width: 155px;
+        }
+      }
+      @each $li,$count in $liCount{
+        .item:nth-child(#{$li}):hover{		/*导航的高度伸缩变化动画*/
+          .pull-down-list{
+            @include height($count);
+            opacity: 1;
+          }
+        }
+      }
+      .active{		/*导航激活时的样式*/
+        color: #31c27c;
+        a{
+          color: #31c27c !important;
+        }
+      }
+    }
+  }
+}
