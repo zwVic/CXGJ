@@ -25,6 +25,8 @@ module.exports = {
         'hy-articles':'./entry/Huanyu/hy-articles.js',
         'hy-picture':'./entry/Huanyu/hy-picture.js',
         'hy-article':'./entry/Huanyu/hy-article.js',
+        //了然文化传播
+        'lr-articles':'./entry/Leran/lr-articles.js'
     },
     output:{
         path: path.resolve("./build"), //输出目录的配置，模板、样式、脚本、图片等资源的路径配置都相对于它
@@ -38,8 +40,8 @@ module.exports = {
           'CXGJ':path.resolve(__dirname, 'modules/CXGJ'),
           'Hotel':path.resolve(__dirname,'modules/Hotel'),
           'Huanyu':path.resolve(__dirname,'modules/Huanyu'),
-          "modules":path.resolve(__dirname,'modules'),
-
+          'modules':path.resolve(__dirname,'modules'),
+          'Leran':path.resolve(__dirname,'modules/Leran')
       }
     },
     module: {
@@ -95,6 +97,12 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'hy-vendors', // 将公共模块提取，生成名为`vendors`的chunk
             chunks: ['hy-index','hy-form','hy-about','hy-articles','hy-picture','hy-article'], //提取哪些模块共有的部分
+            // minChunks: 7 // 提取至少3个模块共有的部分
+        }),
+        /********了然文化ia共有模块***************/
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'lr-vendors', // 将公共模块提取，生成名为`vendors`的chunk
+            chunks: ['lr-articles'], //提取哪些模块共有的部分
             // minChunks: 7 // 提取至少3个模块共有的部分
         }),
 
@@ -252,6 +260,17 @@ module.exports = {
                 removeComments: false,
                 collapseWhitespace: false
             }
-        })
+        }),
+        /********************了然文化*******************/
+        new HtmlWebpackPlugin({
+            filename: './lr-articles.html',
+            template: path.resolve(__dirname, 'modules/Leran/lr-articles/lr-articles.html'),
+            inject: 'body',
+            chunks: ['lr-vendors','lr-articles'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
     ]
 }
