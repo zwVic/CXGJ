@@ -3,7 +3,7 @@
  */
 (function($){
 
-    var header = ['<header>',
+    var header = ['<header class="relativeHeader">',
         '		<img src="" alt="">',
         '		<nav>',
         '			<ul>',
@@ -121,6 +121,15 @@
         '			</ul>',
         '		</nav>',
         '	</header>'].join("");
+    $("body").prepend(header);
+    var href = window.location.href;
+    var index = href.lastIndexOf("/");
 
-    $(".body").prepend(header);
+    var header = $("header");
+
+    switch (href.slice(index+1,href.indexOf('.'))){
+        case 'lr-index':
+            header.removeClass('relativeHeader');
+            break;
+    }
 })(window.jQuery)
