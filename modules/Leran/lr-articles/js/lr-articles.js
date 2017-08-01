@@ -1,8 +1,4 @@
-/**
- * Created by admin on 2017/7/31.
- */
 (function ($) {
-
     function Pagination(options) {
         var _this = this;
         _this.PageNum = options.PageNum || 1;
@@ -11,24 +7,24 @@
         _this.init();
     }
 
-    var template = `<section class="articles">
-        <span class="publisher">{{publisher}}</span><span class="time">{{date}}</span>
-        <h3>{{title}}</h3>
-        <p class="content">
-            {{content}}
-        </p>
-        <a href="#">影院天堂</a>
-    </section>`
+    //文章模板
+    var template = ['<section class="articles">     ',
+        '        <span class="publisher">{{publisher}}</span><span class="time">{{date}}</span>',
+        '        <h3>{{title}}</h3>',
+        '        <p class="content">',
+        '            {{content}}',
+        '        </p>',
+        '        <a href="#">影院天堂</a>',
+        '    </section>'].join("");
 
-    var base_url = 'http://192.168.232.138:8081/build/lr-articles.html?page={{page}}&type="最新消息"'
+    var base_url = "http://127.0.0.1:8080/build/lr-articles.html?page={{page}}&type='最新消息'"
     Pagination.prototype = {
         init: function () {
             var _this = this;
             var url = location.href;
             var re = /page=([\d]+)&?/;
             var reType = /type=(.+)&?/;
-            console.log(url.match(reType)[1]);
-            console.log(url.match(re)[1]);
+
             _this.type = url.match(reType)[1] && "最新消息";
 
             _this.index = parseInt(url.match(re)[1]) || 1;
@@ -40,30 +36,25 @@
             var _this = this;
             var url = 'http://127.0.0.1:3000/articles/lrArticle/count'
             var type = "GET";
-            var data = {type: _this.type};
+            var data = {type: _this.type};  //文章类型
             var callback = function (results) {
-                var count = results.data;
-                var total = Math.ceil(count / _this.PageNum);
-                _this.paginationInit(_this.index, total);
+                var count = results.data;   //总数量
+                var total = Math.ceil(count / _this.PageNum);   //计算有多少页数
+                _this.paginationInit(_this.index, total);       //初始化分页器
             }
             _this.ajaxRequest(url, data, type, callback);
         },
         paginationInit: function (index, total) {
-            console.log(index,total);
             var _this = this;
             var pager = new Pager({
-                index: index,
-                total: total,
-                parent: _this.parent[0],
+                index: index,               //当前索引
+                total: 20,               //总页数
+                parent: _this.parent[0],    //分页器父级元素
+                baseUrl: base_url,           //链接地址
                 onchange: _this.doChangePage.bind(_this)
             });
         },
-        doChangePage: function (index,last,total) {
-            // var url  = base_url.replace("{{page}}",index.index);
-            // window.location.href = url;
-            //console.log(index,last,total);
-            this.index = index.index;
-            this.getArticle();
+        doChangePage: function (index, last, total) {
         },
         ajaxRequest: function (url, data, type, callback) {
             $.ajax({
@@ -75,13 +66,13 @@
                 }
             })
         },
-        getArticle(){
+        getArticle(){               //获取文章
             var _this = this;
             var url = 'http://127.0.0.1:3000/articles/lrArticle/get'
             var type = "GET";
-            var data = {pageNum: _this.PageNum, type: _this.type, count: _this.PageNum, index: _this.index};
+            var data = {type: _this.type, count: _this.PageNum, index: _this.index};
             var callback = function (results) {
-                _this.articles.empty();
+                _this.articles.empty();             //清空文章列表
                 for (var i = 0; i < results.data.length; i++) {
                     var temp = template;    //模板
                     for (var key in results.data[i]) {
