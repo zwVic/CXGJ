@@ -3,7 +3,7 @@
  */
 (function ($) {
 
-    var searchURL = window.location.search;
+    /*var searchURL = window.location.search;
     var searchURL = searchURL.substring(1,searchURL.length).split("&");
     var type = searchURL[0].split("=")[1];
     var  id= searchURL[1].split("=")[1];
@@ -22,8 +22,8 @@
             break;
 
 
-    }
-   $.ajax({
+    }*/
+  /* $.ajax({
         'url':,
         type:'get',
         data:{
@@ -35,5 +35,5 @@
             $(".main .info .time").html(data.time);
             $(".main .article").append(data.content);
         }
-    })
+    })*/
 })(window.jQuery)
