@@ -135,8 +135,16 @@
         case 'lr-index':
             header.removeClass('relativeHeader');
             break;
-        default:
+        case 'lr-articles':
+            $("header .item:eq(1) span").addClass("active");
             $("body>script").length>0 ? $('body>script').eq(0).before(footer):$('body').append(footer);
+            break;
+        case 'lr-article':
+            $("header .item:eq(1) span").addClass("active");
+            $("body>script").length>0 ? $('body>script').eq(0).before(footer):$('body').append(footer);
+            break;
+        default:
+
             break;
     }
 })(window.jQuery)
