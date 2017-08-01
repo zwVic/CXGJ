@@ -68,6 +68,7 @@
         this.__parent = obj.parent;//父元素
         this.__onchange = obj.onchange;  //回调函数
         this.__base_url = obj.baseUrl;
+        console.log(this.__base_url)
         //初始化分页器
         this.__init(obj);
 

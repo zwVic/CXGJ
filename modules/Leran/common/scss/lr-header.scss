@@ -44,6 +44,10 @@ header{
         text-align: center;
         margin-right: 65px;
         position: relative;
+          a{
+            color: white;
+            text-decoration: none;
+          }
         .pull-down-list{  /*导航的下拉列表*/
           position: absolute;
           background: rgba(0,0,0,0.60);

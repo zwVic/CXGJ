@@ -17,19 +17,17 @@
         '        <a href="#">影院天堂</a>',
         '    </section>'].join("");
 
-    var base_url = "http://127.0.0.1:8080/build/lr-articles.html?page={{page}}&type='最新消息'"
     Pagination.prototype = {
         init: function () {
             var _this = this;
             var url = location.href;
             var re = /page=([\d]+)&?/;
-            var reType = /type=(.+)&?/;
+            var reType = /type=([\w]+)&?/;
+            _this.type = url.match(reType) && url.match(reType)[1] || "theory";
+            _this.base_url = "http://127.0.0.1:8080/build/lr-articles.html?type="+ _this.type+"&page={{page}}";
 
-            _this.type = url.match(reType)[1] && "最新消息";
-
-            _this.index = parseInt(url.match(re)[1]) || 1;
-
-            _this.getArticle(_this.index);
+            _this.index = (url.match(re) && parseInt(url.match(re)[1])) || 1;
+            _this.getArticle(_this.index);  //获取文章
             _this.getCount();       //获取总数量
         },
         getCount: function () {
@@ -48,9 +46,9 @@
             var _this = this;
             var pager = new Pager({
                 index: index,               //当前索引
-                total: 20,               //总页数
+                total: total,               //总页数
                 parent: _this.parent[0],    //分页器父级元素
-                baseUrl: base_url,           //链接地址
+                baseUrl: _this.base_url,           //链接地址
                 onchange: _this.doChangePage.bind(_this)
             });
         },
@@ -85,9 +83,9 @@
             _this.ajaxRequest(url, data, type, callback);
         }
     }
-    new Pagination({
-        PageNum: 5,
-        parent: $("#pager"),
-        articles: $("#articles")
-    })
+    // new Pagination({
+    //     PageNum: 5,
+    //     parent: $("#pager"),
+    //     articles: $("#articles")
+    // })
 })(window.jQuery)
