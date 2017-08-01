@@ -121,6 +121,10 @@
         '			</ul>',
         '		</nav>',
         '	</header>'].join("");
+    var footer = ['<footer>',
+        '    <div class="name">广东省了然文化传播有限公司</div>',
+        '    <div class="address">东莞市松山湖大学路瑞鹰国际科技创新园8栋201</div>',
+        '</footer>'].join("");
     $("body").prepend(header);
     var href = window.location.href;
     var index = href.lastIndexOf("/");
@@ -130,6 +134,9 @@
     switch (href.slice(index+1,href.indexOf('.'))){
         case 'lr-index':
             header.removeClass('relativeHeader');
+            break;
+        default:
+            $("body>script").length>0 ? $('body>script').eq(0).before(footer):$('body').append(footer);
             break;
     }
 })(window.jQuery)

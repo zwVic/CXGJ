@@ -5,7 +5,7 @@
 
     var searchURL = window.location.href.search;
     var id = searchURL.substring(1,searchURL.length).split("&")[0].split("=")[0];
-   $.ajax({
+   /*$.ajax({
         'url':,
         type:'get',
         data:{
@@ -17,5 +17,5 @@
             $(".main .info .time").html(data.time);
             $(".main .article").append(data.content);
         }
-    })
+    })*/
 })(window.jQuery)
