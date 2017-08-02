@@ -3,6 +3,8 @@
  */
 (function ($) {
 
+
+
     /*var searchURL = window.location.search;
     var searchURL = searchURL.substring(1,searchURL.length).split("&");
     var type = searchURL[0].split("=")[1];
@@ -27,13 +29,14 @@
         'url':,
         type:'get',
         data:{
-            'id':id
+            _id:"597ee852681a3c1c2420fb56"
         },
         success:function(data){
-            $(".main .info .title").html(data.title);
-            $(".main .info .author").html(data.author);
-            $(".main .info .time").html(data.time);
-            $(".main .article").append(data.content);
+            console.log(data);
+            $(".main .info .title").html(data.data.title);
+            $(".main .info .author").html(data.data.author);
+            $(".main .info .time").html(data.data.time);
+            $(".main .article").append(data.data.content);
         }
     })*/
 })(window.jQuery)
