@@ -13,7 +13,7 @@ ul,li{
 }
 /*****导航栏更改时需要修改此处******/
 $pullDownListItem:41px;         /* 导航栏下拉列表每一项高度 */
-$liCount:(1:0,2:4,3:4,4:5,5:2); /* 键为导航的索引，值为该项的下拉列表有几项 */
+$liCount:(1:0,2:4,3:4,4:2,5:5,6:0); /* 键为导航的索引，值为该项的下拉列表有几项 */
 
 
 @mixin height($count){
@@ -84,7 +84,7 @@ header{
           }
         }
       }
-      .item:nth-child(4),.item:nth-child(5){		/*某两个导航的宽度*/
+      .item:nth-child(5),.item:nth-child(4){		/*某两个导航的宽度*/
         .pull-down-list{
           width: 155px;
         }
