@@ -3,10 +3,13 @@
 article {
   width: 100%;
   min-width: 1200px;
+  height:100%;
+  height:calc(100% - 61px);
   @include clearfix;
   .left {
     float: left;
     width: 30%;
+    background: url("../img/lrLeftBg.png");
     .header {
       height: 50px;
       background: rgb(55, 157, 107);

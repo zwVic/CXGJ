@@ -29,7 +29,6 @@
         getScrollIndex: function () {
             var j = 0;
 
-
             for (var i = this.anchor.length - 1; i > 0; i--) {
                 if (this.scrollTop() > (this.anchorArr[i] + this.anchorArr[i - 1]) / 2) {
                     j = i;
@@ -38,7 +37,7 @@
             }
             return j;
         }
-    }
+    };
     var __bindEvent = {
         ListClick: function () {           //左侧点击事件
             var _this = this;

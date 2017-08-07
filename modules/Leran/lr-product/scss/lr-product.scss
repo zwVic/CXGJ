@@ -4,12 +4,19 @@ article {
   width: 100%;
   min-width: 1200px;
   @include clearfix;
+  height:100%;
+  height:calc(100% - 61px);
+  position:relative;
   .left {
     float: left;
     width: 30%;
+    background: url("../../common/img/lrLeftBg.png");
+    background-repeat: repeat;
+    height:100%;
     .header {
       height: 50px;
       background: rgb(55, 157, 107);
+      padding-left:60%;
       h2 {
         color: #fff;
         font-size: 20px;
@@ -19,10 +26,10 @@ article {
     }
     .navList {
       ul {
-        padding-left:230px;
+        padding-left:60%;
         margin-top:40px;
         li {
-          margin: 20px 0;
+          margin: 30px 0;
           cursor: pointer;
         }
         li.active {
@@ -34,6 +41,7 @@ article {
   .right {
     float: left;
     width: 70%;
+    height:100%;
     .header {
       height: 50px;
       background: rgb(234, 234, 234);
@@ -49,14 +57,14 @@ article {
     }
 
     .content-wrapper {
+      height:calc(100% - 50px);
       position: relative;
-      height: 500px;
       overflow-y: hidden;
 
     }
     section {
       width: 900px;
-      padding-left: 15px;
+      padding-left:90px;
       margin-bottom: 50px;
       .anchor {
         font-size: 21px;
