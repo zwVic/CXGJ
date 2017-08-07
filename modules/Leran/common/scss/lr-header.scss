@@ -57,6 +57,7 @@ header{
         text-align: center;
         margin-right: 65px;
         position: relative;
+        padding-bottom: 6px;
           a{
             color: white;
             text-decoration: none;
@@ -75,6 +76,7 @@ header{
             padding:10px  6px;
             cursor: pointer;
             position: relative;
+            display: none;
             a{
               color: white;
               text-decoration: none;
@@ -91,12 +93,12 @@ header{
                 transform: translate(-50%,-35%);
                 transition: width 0.8s ease-out;
               }
-              &:hover{
-                color: #31c27c;
-                .border{
-                  width: 100%;
-                }
-              }
+              /*&:hover{
+                  color: #31c27c;
+                  .border{
+                    width: 100%;
+                  }
+                }*/
             }
           }
         }
@@ -111,6 +113,15 @@ header{
           .pull-down-list{
             @include height($count);
             opacity: 1;
+            li{
+              display: block;
+              a:hover{
+                color: #31c27c;
+                .border{
+                  width: 100%;
+                }
+              }
+            }
           }
         }
       }
