@@ -83,9 +83,9 @@
             _this.ajaxRequest(url, data, type, callback);
         }
     }
-    // new Pagination({
-    //     PageNum: 5,
-    //     parent: $("#pager"),
-    //     articles: $("#articles")
-    // })
+    new Pagination({
+        PageNum: 5,
+        parent: $("#pager"),
+        articles: $("#articles")
+    })
 })(window.jQuery)
