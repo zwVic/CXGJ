@@ -2,7 +2,18 @@
  * Created by Administrator on 2017/7/31.
  */
 (function ($) {
-
+    var _this = this;
+    var wheelrate = 30;
+    var position = 0;
+    var lastposition = 0;
+    $(".content-wrapper").on("mousewheel DOMMouseScroll",function (e) {
+        var oev = e.originalEvent;
+        lastposition = position;
+        position = (oev.wheelDelta ? -oev.wheelDelta / 120 : (oev.detail / 3)) * wheelrate + this.scrollTop;
+        $(this).scrollTop(position);
+        if(lastposition != position)
+            return false;
+    })
 
 
     /*var searchURL = window.location.search;

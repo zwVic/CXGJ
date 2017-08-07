@@ -1,0 +1,41 @@
+.right{
+  .content-wrapper{
+    background: #ebedf3;
+    .content{
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      width: 80%;
+      color: #6d3d3d;
+      opacity: 0;
+      animation: showContent 1.5s linear;
+      animation-fill-mode: forwards;
+    }
+    @keyframes showContent{
+      0%{
+        opacity: 0;
+        transform:translate(-50%,0%);
+      }
+      60%{
+        opacity: 0.4;
+        transform: translate(-50%,-20%);
+      }
+     100%{
+        opacity: 1;
+        transform:translate(-50%,-50%);
+      }
+    }
+    @media screen  and (max-width:1600px){
+      .content{
+        line-height: 32px;
+        font-size: 17px;
+      }
+    }
+    @media screen  and  (min-width: 1600px){
+      .content{
+        line-height: 50px;
+        font-size: 23px;
+      }
+    }
+  }
+}
