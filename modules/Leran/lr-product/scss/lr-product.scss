@@ -61,6 +61,21 @@ article {
       overflow-y: hidden;
 
     }
+    .humanResource{
+      .humanResource-title{
+        margin: 15px 0;
+        font-size: 20px;
+        color: rgb(202, 63, 0);
+        font-weight: bold;
+      }
+      .humanResource-list{
+        margin-bottom: 30px;
+      }
+      li{
+        font-size: 16px;
+        line-height: 30px;
+      }
+    }
     section {
       width: 900px;
       padding-left:90px;
@@ -71,6 +86,11 @@ article {
         line-height: 50px;
         margin-left: 10px;
         border-bottom: 1px solid #379e6b;
+      }
+      .introduce{
+        font-size: 17px;
+        line-height: 32px;
+        margin-top: 20px;
       }
       .title {
         font-size: 18px;
