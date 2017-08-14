@@ -32,9 +32,32 @@ article {
         li {
           margin: 30px 0;
           cursor: pointer;
+          .iconfont{
+            display: inline-block;
+            
+            transform: rotate(0deg);
+          }
+          .downList{
+            overflow: hidden;
+            height: 0;
+          }
         }
         li.active {
           color: rgb(55, 157, 107);
+          .iconfont{
+            transition: transfrom 2.3s linear;
+            transform: rotate(90deg);
+            /* animation: xuanzhuan .5s linear;
+            animation-fill-mode: forwards; */
+          }
+          /* @keyframes xuanzhuan {
+            from{
+              transform: rotate(0deg);
+            }
+            to{
+              transform: rotate(90deg);
+            }
+          } */
         }
       }
     }
@@ -79,7 +102,24 @@ article {
       }
     }
     .trainAndDevelop{
-      ul{
+      .profile{
+        p{
+          line-height: 35px;
+          color: slategrey;
+        }
+        ul{
+          li{
+            .iconfont{
+              color: #379d6b;
+            }
+            span{
+
+            }
+          }
+        }
+      }
+      .item{
+        margin-top: 30px;
         li{
           display: inline-block;
           text-align: center;
@@ -133,6 +173,18 @@ article {
             color: #379d6b;
             margin-top: 5px;
           }
+        }
+      }
+      .content{
+        width: 100%;
+        li{
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+          width: 21%;
+          margin-right: 4%;
+          line-height: 28px;
+          color: slategrey;
         }
       }
     }
