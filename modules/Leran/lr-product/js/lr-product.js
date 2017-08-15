@@ -22,15 +22,17 @@
             for (var i = 0; i < this.anchor.length; i++) {
                 _this.anchorArr.push(this.anchor.eq(i).position().top);
             }
+
         },
         getScrollIndex: function () {
             var j = 0;
-
-
             for (var i = this.anchor.length - 1; i > 0; i--) {
                 if (this.scrollTop() > (this.anchorArr[i] + this.anchorArr[i - 1]) / 2) {
                     j = i;
                     return j;
+                }
+                if(this.content[0].scrollHeight <= this.scrollTop() + this.content.height() + 100){
+                    console.log("1111111");
                 }
             }
             return j;
@@ -38,6 +40,7 @@
     }
     var __bindEvent = {
         ListClick: function () {           //左侧点击事件
+
             var _this = this;
             _this.leftList.on("click", function () {
                 $(this).addClass("active").siblings().removeClass("active");        //为点击增加active 并且remove其它li的active
@@ -74,11 +77,15 @@
             var position = 0;
             _this.content.on("mousewheel DOMMouseScroll", function (e) {
                 var oev = e.originalEvent;
-                position = (oev.wheelDelta ? -oev.wheelDelta / 120 : (oev.detail / 3)) * wheelrate + _this.content[0].scrollTop;
+                position = (oev.wheelDelta ? -oev.wheelDelta / 120 : (oev.detail / 3)) * wheelrate +this.scrollTop;
                 _this.scrollTo(position);
             })
         }
     }
 
-    $(".content-wrapper").ScrollAuto();
+
 })(window.jQuery, "ScrollAuto")
+
+$(function () {
+    $(".content-wrapper").ScrollAuto();
+})

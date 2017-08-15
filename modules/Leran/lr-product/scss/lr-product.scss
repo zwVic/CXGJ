@@ -4,19 +4,19 @@ article {
   width: 100%;
   min-width: 1200px;
   @include clearfix;
-  height:100%;
-  height:calc(100% - 61px);
-  position:relative;
+  height: 100%;
+  height: calc(100% - 61px);
+  position: relative;
   .left {
     float: left;
     width: 30%;
     background: url("../../common/img/lrLeftBg.png");
     background-repeat: repeat;
-    height:100%;
+    height: 100%;
     .header {
       height: 50px;
       background: rgb(55, 157, 107);
-      padding-left:60%;
+      padding-left: 50%;
       h2 {
         color: #fff;
         font-size: 20px;
@@ -25,8 +25,8 @@ article {
     }
     .navList {
       ul {
-        padding-left:60%;
-        margin-top:40px;
+        padding-left: 50%;
+        margin-top: 40px;
         li {
           margin: 30px 0;
           cursor: pointer;
@@ -40,7 +40,7 @@ article {
   .right {
     float: left;
     width: 70%;
-    height:100%;
+    height: 100%;
     .header {
       height: 50px;
       background: rgb(234, 234, 234);
@@ -48,28 +48,28 @@ article {
         color: #3a3a3a;
         font-size: 15px;
         line-height: 50px;
-        text-align: center;
-        a{
-          color:#3a3a3a;
+        text-align: right;
+        margin-right: 50px;
+        a {
+          color: #3a3a3a;
         }
       }
     }
 
     .content-wrapper {
-      height:calc(100% - 50px);
+      height: calc(100% - 50px);
       position: relative;
       overflow-y: hidden;
 
     }
     section {
       width: 900px;
-      padding-left:90px;
-      margin-bottom: 50px;
+      padding-left: 90px;
+      margin-bottom: 150px;
       .anchor {
         font-size: 21px;
         font-weight: normal;
         line-height: 50px;
-        margin-left: 10px;
         border-bottom: 1px solid #379e6b;
       }
       .title {
@@ -83,7 +83,15 @@ article {
       ul.lists {
         margin: 50px 0;
         li {
-          margin: 20px 0;
+          margin: 30px 55px 0;
+          position: relative;
+          i {
+            position: absolute;
+            top: 5px;
+            left: -57px;
+            font-size: 34px;
+            color: #ca3f00;
+          }
           h4 {
             font-size: 18px;
             color: #ca3f00;
@@ -91,17 +99,148 @@ article {
           }
         }
       }
+      ul.searcher-list {
+        li {
+          margin: 15px 0;
+        }
+      }
       h5 {
         color: #ca3f00;
         font-size: 16px;
         margin: 10px 0;
       }
-      ul {
-        li {
-          margin: 10px 0;
-        }
+    }
+  }
+
+}
+
+section {
+  ul.healthy-intro {
+    margin: 30px 0;
+    @include clearfix;
+    li {
+      float: left;
+    }
+    li.icon-right {
+      color: #379d6b;
+      font-size: 35px;
+      margin: 10px 5px;
+    }
+    li.healthy-border {
+      width: 150px;
+      height: 50px;
+      background: #379d6b;
+      //border:3px solid #379d6b ;
+      padding: 10px;
+      margin: 10px 5px;
+      span {
+        display: inline-block;
+        width: 130px;
+        height: 30px;
+        color: #fff;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #fff;
+      }
+    }
+  }
+}
+
+section {
+  .train-lists {
+    li {
+      width: 207px;
+      height: 68px;
+      background: url("../../common/img/trainBg.jpg") no-repeat;
+      .train-left, .train-right {
+        display: inline-block;
+        font-size: 22px;
+        line-height: 68px;
+        margin-left: 20px;
+      }
+      .train-left {
+        color: #fff;
+      }
+      .train-right {
+        color: #d65421;
+        float: right;
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+//管理者领导能力
+section {
+  .managerActiveLeader-lists {
+    margin-top: 80px;
+    @include clearfix;
+    .pic {
+      float: left;
+      margin: 30px 20px;
+      width: 103px;
+      //float:left;
+      span {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}
+
+//全员心理资本提升培训
+section {
+  .train-lists {
+    margin-top:40px;
+    @include clearfix;
+    li {
+      float: left;
+      margin: 30px 30px;
+    }
+  }
+}
+
+section {
+  .PsychologyCrisisTitle {
+    margin: 30px 0;
+  }
+  .PsychologyCrisis {
+    @include clearfix;
+    li {
+      width: 150px;
+      float: left;
+      margin: 30px 52px 30px 0;
+      span.train-right {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}
+
+section.employeeDevelop {
+
+  .lists-container {
+    margin-top:80px;
+    @include clearfix;
+    ul {
+      float: left;
+      li {
+        width: 150px;
+        height: 46px;
+        border: 1px solid #379d6b;
+        margin: 30px 30px 30px 0;
+        line-height: 46px;
+        text-align: center;
+        color: #626262;
+
+      }
+      li:first-child {
+        background: #379d6b;
+        color: #fff;
       }
     }
   }
 
 }
+
