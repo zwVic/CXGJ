@@ -141,7 +141,6 @@
             break;
         case 'lr-articles':
             $("header .item:eq(1) span").addClass("active");
-
             break;
         case 'lr-article':
             $("header .item:eq(1) span").addClass("active");
