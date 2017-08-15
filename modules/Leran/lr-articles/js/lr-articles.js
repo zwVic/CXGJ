@@ -9,12 +9,15 @@
 
     //文章模板
     var template = ['<section class="articles">     ',
+        '  <div class="img-wrapper">',
+        '<img src="{{mainImg}}">',
+        '</div>',
         '        <span class="publisher">{{publisher}}</span><span class="time">{{date}}</span>',
-        '        <h3>{{title}}</h3>',
-        '        <p class="content">',
-        '            {{content}}',
-        '        </p>',
-        '        <a href="#">影院天堂</a>',
+        '        <h3><a href="./lr-article.html?id={{id}}">{{title}}</a></h3>',
+        '        <div class="intro">',
+        '            {{intro}}',
+        '        </div>',
+        '        <a class="article-footer" href="#">影院天堂</a>',
         '    </section>'].join("");
 
     Pagination.prototype = {
@@ -24,9 +27,9 @@
             var re = /page=([\d]+)&?/;
             var reType = /type=([\w]+)&?/;
             _this.type = url.match(reType) && url.match(reType)[1] || "theory";
-            _this.base_url = "http://127.0.0.1:8080/build/lr-articles.html?type="+ _this.type+"&page={{page}}";
+            _this.base_url = "http://127.0.0.1:8080/build/lr-articles.html?type=" + _this.type + "&page={{page}}";//获取文章类型和第几页
 
-            _this.index = (url.match(re) && parseInt(url.match(re)[1])) || 1;
+            _this.index = (url.match(re) && parseInt(url.match(re)[1])) || 1;   //当前第几页
             _this.getArticle(_this.index);  //获取文章
             _this.getCount();       //获取总数量
         },
@@ -44,6 +47,7 @@
         },
         paginationInit: function (index, total) {
             var _this = this;
+            console.log(_this.parent[0])
             var pager = new Pager({
                 index: index,               //当前索引
                 total: total,               //总页数
@@ -60,13 +64,14 @@
                 data: data,
                 type: type,
                 success: function (results) {
+                    console.log(results)
                     callback(results);
                 }
             })
         },
         getArticle(){               //获取文章
             var _this = this;
-            var url = 'http://127.0.0.1:3000/articles/lrArticle/get'
+            var url = 'http://127.0.0.1:3000/articles/lrArticle/get';
             var type = "GET";
             var data = {type: _this.type, count: _this.PageNum, index: _this.index};
             var callback = function (results) {
@@ -84,7 +89,7 @@
         }
     }
     new Pagination({
-        PageNum: 5,
+        PageNum: 4,
         parent: $("#pager"),
         articles: $("#articles")
     })

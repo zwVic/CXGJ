@@ -29,6 +29,7 @@ module.exports = {
         'lr-articles':'./entry/Leran/lr-articles.js',
         'lr-index':'./entry/Leran/lr-index.js',
         'lr-article':'./entry/Leran/lr-article.js',
+        'lr-aboutUs':"./entry/Leran/lr-aboutUs.js",
         'lr-product':'./entry/Leran/lr-product.js'
     },
     output:{
@@ -105,7 +106,7 @@ module.exports = {
         /********了然文化ia共有模块***************/
         new webpack.optimize.CommonsChunkPlugin({
             name: 'lr-vendors', // 将公共模块提取，生成名为`vendors`的chunk
-            chunks: ['lr-articles','lr-index','lr-article','lr-product'], //提取哪些模块共有的部分
+            chunks: ['lr-articles','lr-index','lr-article','lr-aboutUs','lr-product'], //提取哪些模块共有的部分
             // minChunks: 7 // 提取至少3个模块共有的部分
         }),
 
@@ -290,6 +291,16 @@ module.exports = {
             template: path.resolve(__dirname, 'modules/Leran/lr-article/lr-article.html'),
             inject: 'body',
             chunks: ['lr-vendors','lr-article'],//需要引入的chunk，不配置就会引入所有页面的资源
+            minify: {
+                removeComments: false,
+                collapseWhitespace: false
+            }
+        }),
+        new HtmlWebpackPlugin({
+            filename: './lr-aboutUs.html',
+            template: path.resolve(__dirname, 'modules/Leran/lr-aboutUs/lr-aboutUs.html'),
+            inject: 'body',
+            chunks: ['lr-vendors','lr-aboutUs'],//需要引入的chunk，不配置就会引入所有页面的资源
             minify: {
                 removeComments: false,
                 collapseWhitespace: false

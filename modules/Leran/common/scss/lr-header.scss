@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 372423 */
-  src: url('//at.alicdn.com/t/font_qad69o658bdo0f6r.eot');
-  src: url('//at.alicdn.com/t/font_qad69o658bdo0f6r.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_qad69o658bdo0f6r.woff') format('woff'),
-  url('//at.alicdn.com/t/font_qad69o658bdo0f6r.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_qad69o658bdo0f6r.svg#iconfont') format('svg');
+  src: url('http://at.alicdn.com/t/font_372423_z5pzgkzucfqg2e29.eot');
+  src: url('http://at.alicdn.com/t/font_372423_z5pzgkzucfqg2e29.eot?#iefix') format('embedded-opentype'),
+  url('http://at.alicdn.com/t/font_372423_z5pzgkzucfqg2e29.woff') format('woff'),
+  url('http://at.alicdn.com/t/font_372423_z5pzgkzucfqg2e29.ttf') format('truetype'),
+  url('http://at.alicdn.com/t/font_372423_z5pzgkzucfqg2e29.svg#iconfont') format('svg');
 }
 
 .iconfont{
@@ -58,6 +58,7 @@ header{
         text-align: center;
         margin-right: 65px;
         position: relative;
+        padding-bottom: 6px;
           a{
             color: white;
             text-decoration: none;
@@ -77,6 +78,7 @@ header{
             padding:10px  6px;
             cursor: pointer;
             position: relative;
+            display: none;
             a{
               color: white;
               text-decoration: none;
@@ -93,12 +95,12 @@ header{
                 transform: translate(-50%,-35%);
                 transition: width 0.8s ease-out;
               }
-              &:hover{
-                color: #31c27c;
-                .border{
-                  width: 100%;
-                }
-              }
+              /*&:hover{
+                  color: #31c27c;
+                  .border{
+                    width: 100%;
+                  }
+                }*/
             }
           }
         }
@@ -113,6 +115,15 @@ header{
           .pull-down-list{
             @include height($count);
             opacity: 1;
+            li{
+              display: block;
+              a:hover{
+                color: #31c27c;
+                .border{
+                  width: 100%;
+                }
+              }
+            }
           }
         }
       }

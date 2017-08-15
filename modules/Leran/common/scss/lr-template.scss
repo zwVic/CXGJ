@@ -5,7 +5,7 @@ article {
   min-width: 1200px;
   @include clearfix;
   height:100%;
-  height:calc(100% - 61px);
+  height:calc(100% - 67px);
   position:relative;
   .left {
     float: left;
@@ -32,6 +32,7 @@ article {
           cursor: pointer;
           a{
             color:#000;
+            text-decoration: none;
           }
         }
         li.active {

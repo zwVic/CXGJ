@@ -126,7 +126,10 @@
         '    <div class="name">广东省了然文化传播有限公司</div>',
         '    <div class="address">东莞市松山湖大学路瑞鹰国际科技创新园8栋201</div>',
         '</footer>'].join("");
+
     $("body").prepend(header);
+    $("body>script").length>0 ? $('body>script').eq(0).before(footer):$('body').append(footer);
+
     var href = window.location.href;
     var index = href.lastIndexOf("/");
 
@@ -138,14 +141,17 @@
             break;
         case 'lr-articles':
             $("header .item:eq(1) span").addClass("active");
-            $("body>script").length>0 ? $('body>script').eq(0).before(footer):$('body').append(footer);
+
             break;
         case 'lr-article':
             $("header .item:eq(1) span").addClass("active");
-            $("body>script").length>0 ? $('body>script').eq(0).before(footer):$('body').append(footer);
+            break;
+        case 'lr-aboutUs':
+            $("header .item:eq(5) span").addClass("active");
             break;
         default:
 
             break;
     }
+
 })(window.jQuery)

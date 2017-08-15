@@ -4,9 +4,12 @@ article {
   width: 100%;
   min-width: 1200px;
   @include clearfix;
-  height: 100%;
-  height: calc(100% - 61px);
-  position: relative;
+
+  // height:100%;
+  // height:calc(100% - 61px);
+  height: 969px;
+  min-height: calc(100% - 61px);
+  position:relative;
   .left {
     float: left;
     width: 30%;
@@ -30,9 +33,32 @@ article {
         li {
           margin: 30px 0;
           cursor: pointer;
+          .iconfont{
+            display: inline-block;
+            
+            transform: rotate(0deg);
+          }
+          .downList{
+            overflow: hidden;
+            height: 0;
+          }
         }
         li.active {
           color: rgb(55, 157, 107);
+          .iconfont{
+            transition: transfrom 2.3s linear;
+            transform: rotate(90deg);
+            /* animation: xuanzhuan .5s linear;
+            animation-fill-mode: forwards; */
+          }
+          /* @keyframes xuanzhuan {
+            from{
+              transform: rotate(0deg);
+            }
+            to{
+              transform: rotate(90deg);
+            }
+          } */
         }
       }
     }
@@ -62,6 +88,108 @@ article {
       overflow-y: hidden;
 
     }
+    .humanResource{
+      .humanResource-title{
+        margin: 15px 0;
+        font-size: 20px;
+        color: rgb(202, 63, 0);
+        font-weight: bold;
+      }
+      .humanResource-list{
+        margin-bottom: 30px;
+      }
+      li{
+        font-size: 16px;
+        line-height: 30px;
+      }
+    }
+    .trainAndDevelop{
+      .profile{
+        p{
+          line-height: 35px;
+          color: slategrey;
+        }
+        ul{
+          li{
+            .iconfont{
+              color: #379d6b;
+            }
+            span{
+
+            }
+          }
+        }
+      }
+      .item{
+        margin-top: 30px;
+        li{
+          display: inline-block;
+          text-align: center;
+          width: 20%;
+          height: 100px;
+          background: #8282d6;
+          color: white;
+          box-sizing: border-box;
+          padding-top: 40px;
+          border-radius: 5px;
+          box-shadow: 3.8px 1px 1px darkgrey;
+          span{
+            display: inline-block;
+          }        
+          &:hover{
+            span{
+              animation:fontUp .9s linear;
+            }
+            
+          }
+          @keyframes fontUp {
+            from{
+              transform: translateY(60px);
+              opacity: 0;
+            }
+            to{
+              transform: translateY(0px);
+              opacity: 1;
+            }
+          }
+        }
+        .iconfont{
+          display: inline-block;
+          font-size: 35px;
+          vertical-align: top;
+          color: #379d6b;
+          margin-top: 36px;
+        }
+      }
+      .arrow{
+        width: 100%;
+        span{
+          display: inline-block;
+          width: 20%;
+          margin-right: 5%;
+          text-align: center;
+          .iconfont{
+            display: inline-block;
+            font-size: 35px;
+            vertical-align: top;
+            color: #379d6b;
+            margin-top: 5px;
+          }
+        }
+      }
+      .content{
+        width: 100%;
+        li{
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+          width: 21%;
+          margin-right: 4%;
+          line-height: 28px;
+          color: slategrey;
+        }
+      }
+    }
     section {
       width: 900px;
       padding-left: 90px;
@@ -72,10 +200,24 @@ article {
         line-height: 50px;
         border-bottom: 1px solid #379e6b;
       }
+      .introduce{
+        font-size: 17px;
+        line-height: 32px;
+        margin-top: 20px;
+      }
       .title {
         font-size: 18px;
         color: #379e6b;
         margin: 30px 0;
+      }
+      .method{
+        li{
+          h4{
+            display: inline-block;
+            font-weight: lighter;
+            color: black;
+          }
+        }
       }
       span {
         font-size: 15px;
