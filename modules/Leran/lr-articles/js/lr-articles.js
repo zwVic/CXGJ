@@ -4,6 +4,7 @@
         _this.PageNum = options.PageNum || 1;
         _this.parent = options.parent;
         _this.articles = options.articles;
+        _this.navList = options.navList;
         _this.init();
     }
 
@@ -13,27 +14,28 @@
         '<img src="{{mainImg}}">',
         '</div>',
         '        <span class="publisher">{{publisher}}</span><span class="time">{{date}}</span>',
-        '        <h3><a href="./lr-article.html?id={{id}}">{{title}}</a></h3>',
+        '        <h3><a href="./lr-article.html?id={{id}}&type={{type}}">{{title}}</a></h3>',
         '        <div class="intro">',
         '            {{intro}}',
         '        </div>',
-        '        <a class="article-footer" href="#">影院天堂</a>',
+        '        <a class="article-footer" href="#">{{artcilesType}}</a>',
         '    </section>'].join("");
 
     Pagination.prototype = {
         init: function () {
             var _this = this;
             var url = location.href;
-            var re = /page=([\d]+)&?/;
-            var reType = /type=([\w]+)&?/;
+            var re = /page=([\d]+)&?/;          //匹配页数正则
+            var reType = /type=([\w]+)&?/;      //匹配类型正则
             _this.type = url.match(reType) && url.match(reType)[1] || "theory";
+            template = template.replace("{{type}}", _this.type);
             _this.base_url = "http://127.0.0.1:8080/build/lr-articles.html?type=" + _this.type + "&page={{page}}";//获取文章类型和第几页
-
+            _this.changeActive(_this.type)    //改变左侧高亮
             _this.index = (url.match(re) && parseInt(url.match(re)[1])) || 1;   //当前第几页
             _this.getArticle(_this.index);  //获取文章
             _this.getCount();       //获取总数量
         },
-        getCount: function () {
+        getCount: function () { //获取总共有多少文章
             var _this = this;
             var url = 'http://127.0.0.1:3000/articles/lrArticle/count'
             var type = "GET";
@@ -45,7 +47,7 @@
             }
             _this.ajaxRequest(url, data, type, callback);
         },
-        paginationInit: function (index, total) {
+        paginationInit: function (index, total) {       //初始化分页器
             var _this = this;
             console.log(_this.parent[0])
             var pager = new Pager({
@@ -86,11 +88,25 @@
 
             }
             _this.ajaxRequest(url, data, type, callback);
+        },
+        changeActive(type){
+            var _this = this;
+            var li = _this.navList.find("li");
+
+            for (var i = 0; i < li.length; i++) {
+                var reType = /type=([\w]+)&?/;
+                if (li.eq(i).find("a")[0].href.match(reType)[1] === type) {     //根据type 与li下面的a的href判断
+                    li.eq(i).addClass("active").siblings().removeClass("active");
+                    template = template.replace("{{artcilesType}}",li.eq(i).find("a").html());  //改变文章下角的类型
+                    break;
+                }
+            }
         }
     }
     new Pagination({
         PageNum: 4,
         parent: $("#pager"),
-        articles: $("#articles")
+        articles: $("#articles"),
+        navList: $(".navList")
     })
 })(window.jQuery)
