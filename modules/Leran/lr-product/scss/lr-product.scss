@@ -35,30 +35,25 @@ article {
           cursor: pointer;
           .iconfont{
             display: inline-block;
-            
+            transition: transform .5s ease-in;
             transform: rotate(0deg);
           }
           .downList{
             overflow: hidden;
             height: 0;
+            opacity: 0;
+            transition: height .5s ease-in , opacity .5s ease-in;
+            line-height: 23px;
+            font-size: 15px;
+            margin-left: 16px;
+            color: black;
           }
         }
         li.active {
           color: rgb(55, 157, 107);
           .iconfont{
-            transition: transfrom 2.3s linear;
             transform: rotate(90deg);
-            /* animation: xuanzhuan .5s linear;
-            animation-fill-mode: forwards; */
           }
-          /* @keyframes xuanzhuan {
-            from{
-              transform: rotate(0deg);
-            }
-            to{
-              transform: rotate(90deg);
-            }
-          } */
         }
       }
     }

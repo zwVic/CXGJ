@@ -44,7 +44,26 @@
             var _this = this;
             _this.leftList.on("click", function () {
                 $(this).addClass("active").siblings().removeClass("active");        //为点击增加active 并且remove其它li的active
-                _this.content.scrollTop(_this.anchorArr[$(this).index()]);          //滚动到相应的位置
+
+                $(".downList").css({
+                    'height':'0px',
+                    'opacity':0,
+                    'margin-top':'0px'
+                })
+
+                if($(this).find(".downList").length == 0 ){
+                    
+                    _this.content.scrollTop(_this.anchorArr[$(this).index()]);          //滚动到相应的位置
+
+                }else{
+                    var downList  = $(this).find(".downList");
+                    $(downList).css({
+                        'height':downList.children().length * 23 + 'px',
+                        'opacity':1,
+                        'margin-top':'5px'
+                    })
+                }
+                
             })
         },
         scrollEvent: function () {
